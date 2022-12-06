@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
 import PropTypes from 'prop-types';
+import DeprecatedPropTypes from 'deprecated-react-native-prop-types'
 
 import TextExtraction from './lib/TextExtraction';
 
@@ -39,13 +39,13 @@ export const PATTERNS = {
  * @property {Function} [onLongPress]
  */
 const defaultParseShape = PropTypes.shape({
-  ...Text.propTypes,
+  ...DeprecatedPropTypes.TextPropTypes,
   type: PropTypes.oneOf(Object.keys(PATTERNS)).isRequired,
   nonExhaustiveMaxMatchCount: PropTypes.number,
 });
 
 const customParseShape = PropTypes.shape({
-  ...Text.propTypes,
+  ...DeprecatedPropTypes.TextPropTypes,
   pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)])
     .isRequired,
   nonExhaustiveMaxMatchCount: PropTypes.number,
@@ -64,11 +64,11 @@ class ParsedText extends React.Component {
   static displayName = 'ParsedText';
 
   static propTypes = {
-    ...Text.propTypes,
+    ...DeprecatedPropTypes.TextPropTypes,
     parse: PropTypes.arrayOf(
       PropTypes.oneOfType([defaultParseShape, customParseShape]),
     ),
-    childrenProps: PropTypes.shape(Text.propTypes),
+    childrenProps: PropTypes.shape(DeprecatedPropTypes.TextPropTypes),
   };
 
   static defaultProps = {
