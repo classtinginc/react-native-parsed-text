@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import DeprecatedPropTypes from 'deprecated-react-native-prop-types'
 
